@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "5b6847c6ccc239125339275d7b9cdb06"
+name = "outlify-test-app"
+handle = "outlify-test-app"
+application_url = "https://harvey-daddy-bryan-sticker.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "outlify-test.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://harvey-daddy-bryan-sticker.trycloudflare.com/auth/callback",
+  "https://harvey-daddy-bryan-sticker.trycloudflare.com/auth/shopify/callback",
+  "https://harvey-daddy-bryan-sticker.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
